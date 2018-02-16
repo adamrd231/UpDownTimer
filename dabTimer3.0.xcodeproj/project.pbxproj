@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		667EFE582036900A00D9E4B3 /* text_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE572036900A00D9E4B3 /* text_notification.mp3 */; };
+		667EFE5A2036901900D9E4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE592036901900D9E4B3 /* Assets.xcassets */; };
+		667EFE612036927800D9E4B3 /* AddTimerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */; };
+		667EFE64203697A200D9E4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE63203697A200D9E4B3 /* Main.storyboard */; };
+		668FC97E2031576700C8533F /* UpDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668FC97D2031576700C8533F /* UpDownTimer.swift */; };
+		668FC9852032B89100C8533F /* timerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668FC9842032B89100C8533F /* timerTableViewController.swift */; };
+		D03D6AB51F81894400075796 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB41F81894400075796 /* GoogleMobileAds.framework */; };
+		D03D6AB71F81896000075796 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB61F81896000075796 /* AdSupport.framework */; };
+		D03D6AB91F81896A00075796 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB81F81896A00075796 /* AudioToolbox.framework */; };
+		D03D6ABB1F81897100075796 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6ABA1F81897100075796 /* AVFoundation.framework */; };
+		D03D6ABD1F81897900075796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6ABC1F81897900075796 /* CoreGraphics.framework */; };
+		D03D6ABF1F81898000075796 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6ABE1F81898000075796 /* CoreTelephony.framework */; };
+		D03D6AC11F81898A00075796 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AC01F81898A00075796 /* EventKit.framework */; };
+		D03D6AC31F81898F00075796 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AC21F81898F00075796 /* EventKitUI.framework */; };
+		D03D6AC51F81899700075796 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AC41F81899700075796 /* MessageUI.framework */; };
+		D03D6AC71F81899F00075796 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AC61F81899F00075796 /* StoreKit.framework */; };
+		D03D6AC91F8189A700075796 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AC81F8189A700075796 /* SystemConfiguration.framework */; };
+		D07C27FE1F7EFF750064E5ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C27FD1F7EFF750064E5ED /* AppDelegate.swift */; };
+		D07C28001F7EFF750064E5ED /* UpDownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C27FF1F7EFF750064E5ED /* UpDownTimerViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		667EFE572036900A00D9E4B3 /* text_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = text_notification.mp3; sourceTree = "<group>"; };
+		667EFE592036901900D9E4B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimerTableViewController.swift; sourceTree = "<group>"; };
+		667EFE63203697A200D9E4B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Main.storyboard; sourceTree = "<group>"; };
+		668FC97D2031576700C8533F /* UpDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDownTimer.swift; sourceTree = "<group>"; };
+		668FC9842032B89100C8533F /* timerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerTableViewController.swift; sourceTree = "<group>"; };
+		D03D6AB41F81894400075796 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "SDKs/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		D03D6AB61F81896000075796 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		D03D6AB81F81896A00075796 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D03D6ABA1F81897100075796 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D03D6ABC1F81897900075796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D03D6ABE1F81898000075796 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		D03D6AC01F81898A00075796 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		D03D6AC21F81898F00075796 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		D03D6AC41F81899700075796 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D03D6AC61F81899F00075796 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D03D6AC81F8189A700075796 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D07C27FA1F7EFF750064E5ED /* dabTimer3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dabTimer3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07C27FD1F7EFF750064E5ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D07C27FF1F7EFF750064E5ED /* UpDownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDownTimerViewController.swift; sourceTree = "<group>"; };
+		D07C28091F7EFF750064E5ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D07C27F71F7EFF750064E5ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03D6AC91F8189A700075796 /* SystemConfiguration.framework in Frameworks */,
+				D03D6AC71F81899F00075796 /* StoreKit.framework in Frameworks */,
+				D03D6AC51F81899700075796 /* MessageUI.framework in Frameworks */,
+				D03D6AC31F81898F00075796 /* EventKitUI.framework in Frameworks */,
+				D03D6AC11F81898A00075796 /* EventKit.framework in Frameworks */,
+				D03D6ABF1F81898000075796 /* CoreTelephony.framework in Frameworks */,
+				D03D6ABD1F81897900075796 /* CoreGraphics.framework in Frameworks */,
+				D03D6ABB1F81897100075796 /* AVFoundation.framework in Frameworks */,
+				D03D6AB91F81896A00075796 /* AudioToolbox.framework in Frameworks */,
+				D03D6AB71F81896000075796 /* AdSupport.framework in Frameworks */,
+				D03D6AB51F81894400075796 /* GoogleMobileAds.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D03D6AB31F81894300075796 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D03D6AC81F8189A700075796 /* SystemConfiguration.framework */,
+				D03D6AC61F81899F00075796 /* StoreKit.framework */,
+				D03D6AC41F81899700075796 /* MessageUI.framework */,
+				D03D6AC21F81898F00075796 /* EventKitUI.framework */,
+				D03D6AC01F81898A00075796 /* EventKit.framework */,
+				D03D6ABE1F81898000075796 /* CoreTelephony.framework */,
+				D03D6ABC1F81897900075796 /* CoreGraphics.framework */,
+				D03D6ABA1F81897100075796 /* AVFoundation.framework */,
+				D03D6AB81F81896A00075796 /* AudioToolbox.framework */,
+				D03D6AB61F81896000075796 /* AdSupport.framework */,
+				D03D6AB41F81894400075796 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D07C27F11F7EFF750064E5ED = {
+			isa = PBXGroup;
+			children = (
+				D07C27FC1F7EFF750064E5ED /* dabTimer3.0 */,
+				D07C27FB1F7EFF750064E5ED /* Products */,
+				D03D6AB31F81894300075796 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D07C27FB1F7EFF750064E5ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D07C27FA1F7EFF750064E5ED /* dabTimer3.0.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D07C27FC1F7EFF750064E5ED /* dabTimer3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				667EFE63203697A200D9E4B3 /* Main.storyboard */,
+				667EFE592036901900D9E4B3 /* Assets.xcassets */,
+				667EFE572036900A00D9E4B3 /* text_notification.mp3 */,
+				668FC97D2031576700C8533F /* UpDownTimer.swift */,
+				D07C27FF1F7EFF750064E5ED /* UpDownTimerViewController.swift */,
+				668FC9842032B89100C8533F /* timerTableViewController.swift */,
+				667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */,
+				D07C27FD1F7EFF750064E5ED /* AppDelegate.swift */,
+				D07C28091F7EFF750064E5ED /* Info.plist */,
+			);
+			path = dabTimer3.0;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D07C27F91F7EFF750064E5ED /* dabTimer3.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D07C280C1F7EFF750064E5ED /* Build configuration list for PBXNativeTarget "dabTimer3.0" */;
+			buildPhases = (
+				D07C27F61F7EFF750064E5ED /* Sources */,
+				D07C27F71F7EFF750064E5ED /* Frameworks */,
+				D07C27F81F7EFF750064E5ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dabTimer3.0;
+			productName = dabTimer3.0;
+			productReference = D07C27FA1F7EFF750064E5ED /* dabTimer3.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D07C27F21F7EFF750064E5ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "RD concepts";
+				TargetAttributes = {
+					D07C27F91F7EFF750064E5ED = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6SFM579B5E;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D07C27F51F7EFF750064E5ED /* Build configuration list for PBXProject "dabTimer3.0" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D07C27F11F7EFF750064E5ED;
+			productRefGroup = D07C27FB1F7EFF750064E5ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D07C27F91F7EFF750064E5ED /* dabTimer3.0 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D07C27F81F7EFF750064E5ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				667EFE64203697A200D9E4B3 /* Main.storyboard in Resources */,
+				667EFE582036900A00D9E4B3 /* text_notification.mp3 in Resources */,
+				667EFE5A2036901900D9E4B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D07C27F61F7EFF750064E5ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668FC9852032B89100C8533F /* timerTableViewController.swift in Sources */,
+				D07C28001F7EFF750064E5ED /* UpDownTimerViewController.swift in Sources */,
+				D07C27FE1F7EFF750064E5ED /* AppDelegate.swift in Sources */,
+				667EFE612036927800D9E4B3 /* AddTimerTableViewController.swift in Sources */,
+				668FC97E2031576700C8533F /* UpDownTimer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D07C280A1F7EFF750064E5ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D07C280B1F7EFF750064E5ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D07C280D1F7EFF750064E5ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SFM579B5E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs/GoogleMobileAdsSdkiOS-7.24.1",
+				);
+				INFOPLIST_FILE = dabTimer3.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "design.justin-rdconcepts.upDown";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D07C280E1F7EFF750064E5ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SFM579B5E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs/GoogleMobileAdsSdkiOS-7.24.1",
+				);
+				INFOPLIST_FILE = dabTimer3.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "design.justin-rdconcepts.upDown";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D07C27F51F7EFF750064E5ED /* Build configuration list for PBXProject "dabTimer3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D07C280A1F7EFF750064E5ED /* Debug */,
+				D07C280B1F7EFF750064E5ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D07C280C1F7EFF750064E5ED /* Build configuration list for PBXNativeTarget "dabTimer3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D07C280D1F7EFF750064E5ED /* Debug */,
+				D07C280E1F7EFF750064E5ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D07C27F21F7EFF750064E5ED /* Project object */;
+}
