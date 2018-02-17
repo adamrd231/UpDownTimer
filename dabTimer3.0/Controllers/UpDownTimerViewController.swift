@@ -94,6 +94,10 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func done(_ sender: Any) {
         
         if let timerToWorkWith = timerToWorkWith {
+            
+            timerToWorkWith.heatTimerSaved = timerToWorkWith.heatUpTimer
+            timerToWorkWith.coolTimerSaved = timerToWorkWith.coolDownTimer
+            
             timerToWorkWith.name = title!
             timerToWorkWith.heatUpTimer = Int(heatUpLabel.text!)!
             timerToWorkWith.coolDownTimer = Int(coolDownLabel.text!)!

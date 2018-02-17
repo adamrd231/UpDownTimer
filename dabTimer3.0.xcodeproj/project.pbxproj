@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		664002CE2037BD4700D42F9E /* TimerListIem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664002CD2037BD4700D42F9E /* TimerListIem.swift */; };
 		667EFE582036900A00D9E4B3 /* text_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE572036900A00D9E4B3 /* text_notification.mp3 */; };
 		667EFE5A2036901900D9E4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE592036901900D9E4B3 /* Assets.xcassets */; };
 		667EFE612036927800D9E4B3 /* AddTimerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */; };
 		667EFE64203697A200D9E4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667EFE63203697A200D9E4B3 /* Main.storyboard */; };
+		667EFE682037B50000D9E4B3 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667EFE672037B50000D9E4B3 /* MainTableViewController.swift */; };
 		668FC97E2031576700C8533F /* UpDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668FC97D2031576700C8533F /* UpDownTimer.swift */; };
 		668FC9852032B89100C8533F /* timerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668FC9842032B89100C8533F /* timerTableViewController.swift */; };
+		66DE52E32038038E003B6105 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE52E22038038E003B6105 /* EditViewController.swift */; };
+		66DE52E52038273A003B6105 /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE52E42038273A003B6105 /* AddTimerViewController.swift */; };
 		D03D6AB51F81894400075796 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB41F81894400075796 /* GoogleMobileAds.framework */; };
 		D03D6AB71F81896000075796 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB61F81896000075796 /* AdSupport.framework */; };
 		D03D6AB91F81896A00075796 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03D6AB81F81896A00075796 /* AudioToolbox.framework */; };
@@ -29,12 +33,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		664002CD2037BD4700D42F9E /* TimerListIem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListIem.swift; sourceTree = "<group>"; };
 		667EFE572036900A00D9E4B3 /* text_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = text_notification.mp3; sourceTree = "<group>"; };
 		667EFE592036901900D9E4B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimerTableViewController.swift; sourceTree = "<group>"; };
-		667EFE63203697A200D9E4B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Main.storyboard; sourceTree = "<group>"; };
+		667EFE63203697A200D9E4B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		667EFE672037B50000D9E4B3 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = /Users/adamreed/Documents/xcode/dabTimer/dabTimer3.0/Controllers/MainTableViewController.swift; sourceTree = "<absolute>"; };
 		668FC97D2031576700C8533F /* UpDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDownTimer.swift; sourceTree = "<group>"; };
 		668FC9842032B89100C8533F /* timerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerTableViewController.swift; sourceTree = "<group>"; };
+		66DE52E22038038E003B6105 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		66DE52E42038273A003B6105 /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
 		D03D6AB41F81894400075796 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "SDKs/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		D03D6AB61F81896000075796 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D03D6AB81F81896A00075796 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -74,6 +82,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		664002CF2037FB5F00D42F9E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */,
+				667EFE672037B50000D9E4B3 /* MainTableViewController.swift */,
+				668FC9842032B89100C8533F /* timerTableViewController.swift */,
+				D07C27FF1F7EFF750064E5ED /* UpDownTimerViewController.swift */,
+				66DE52E22038038E003B6105 /* EditViewController.swift */,
+				66DE52E42038273A003B6105 /* AddTimerViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		664002D02037FB7200D42F9E /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				664002CD2037BD4700D42F9E /* TimerListIem.swift */,
+				668FC97D2031576700C8533F /* UpDownTimer.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		664002D12037FB9400D42F9E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				667EFE63203697A200D9E4B3 /* Main.storyboard */,
+				667EFE592036901900D9E4B3 /* Assets.xcassets */,
+				667EFE572036900A00D9E4B3 /* text_notification.mp3 */,
+			);
+			name = Resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		D03D6AB31F81894300075796 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,13 +153,9 @@
 		D07C27FC1F7EFF750064E5ED /* dabTimer3.0 */ = {
 			isa = PBXGroup;
 			children = (
-				667EFE63203697A200D9E4B3 /* Main.storyboard */,
-				667EFE592036901900D9E4B3 /* Assets.xcassets */,
-				667EFE572036900A00D9E4B3 /* text_notification.mp3 */,
-				668FC97D2031576700C8533F /* UpDownTimer.swift */,
-				D07C27FF1F7EFF750064E5ED /* UpDownTimerViewController.swift */,
-				668FC9842032B89100C8533F /* timerTableViewController.swift */,
-				667EFE602036927800D9E4B3 /* AddTimerTableViewController.swift */,
+				664002D12037FB9400D42F9E /* Resources */,
+				664002D02037FB7200D42F9E /* Data Models */,
+				664002CF2037FB5F00D42F9E /* Controllers */,
 				D07C27FD1F7EFF750064E5ED /* AppDelegate.swift */,
 				D07C28091F7EFF750064E5ED /* Info.plist */,
 			);
@@ -199,11 +236,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66DE52E32038038E003B6105 /* EditViewController.swift in Sources */,
 				668FC9852032B89100C8533F /* timerTableViewController.swift in Sources */,
 				D07C28001F7EFF750064E5ED /* UpDownTimerViewController.swift in Sources */,
 				D07C27FE1F7EFF750064E5ED /* AppDelegate.swift in Sources */,
 				667EFE612036927800D9E4B3 /* AddTimerTableViewController.swift in Sources */,
+				664002CE2037BD4700D42F9E /* TimerListIem.swift in Sources */,
+				667EFE682037B50000D9E4B3 /* MainTableViewController.swift in Sources */,
 				668FC97E2031576700C8533F /* UpDownTimer.swift in Sources */,
+				66DE52E52038273A003B6105 /* AddTimerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +354,7 @@
 					"$(PROJECT_DIR)/SDKs/GoogleMobileAdsSdkiOS-7.24.1",
 				);
 				INFOPLIST_FILE = dabTimer3.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "design.justin-rdconcepts.upDown";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -333,7 +374,7 @@
 					"$(PROJECT_DIR)/SDKs/GoogleMobileAdsSdkiOS-7.24.1",
 				);
 				INFOPLIST_FILE = dabTimer3.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "design.justin-rdconcepts.upDown";
 				PRODUCT_NAME = "$(TARGET_NAME)";

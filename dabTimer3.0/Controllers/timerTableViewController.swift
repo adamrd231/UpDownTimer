@@ -7,39 +7,39 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class timerTableViewController: UITableViewController, UpDownTimerViewControllerDelegate {
+class timerTableViewController: UITableViewController, UpDownTimerViewControllerDelegate, AddTimerViewControllerDelegate {
     
-    var timersList = [UpDownTimer]()
+    var timersObject: TimerListItem?
     
-
+    @IBOutlet weak var GoogleBannerView: GADBannerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Up Down Timer"
+        title = timersObject?.name
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        var firstTimer = UpDownTimer()
-        firstTimer.name = "1st Nail"
+        //MARK:= google Adwords
+        // Test AdMob Banner ID
+        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         
-        timersList.append(firstTimer)
         
-        firstTimer = UpDownTimer()
-        firstTimer.name = "2nd Nail"
-        firstTimer.heatUpTimer = 60
-        
-        timersList.append(firstTimer)
-        
+        // Live AdMob Banner ID
+        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.rootViewController = self
+        GoogleBannerView.load(GADRequest())
     }
 
     @IBAction func addTimer(_ sender: Any) {
         
-        let newRowIndex = timersList.count
+        let newRowIndex = timersObject?.items.count
         
         let newTimer = UpDownTimer()
         newTimer.name = "New Timer"
-        timersList.append(newTimer)
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        timersObject?.items.append(newTimer)
+        let indexPath = IndexPath(row: newRowIndex!, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         
@@ -52,8 +52,11 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
             let controller = segue.destination as! UpDownTimerViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                controller.timerToWorkWith = timersList[indexPath.row]
+                controller.timerToWorkWith = timersObject?.items[indexPath.row]
             }
+        } else if segue.identifier == "AddTimer" {
+            let controller = segue.destination as! AddTimerViewController
+            controller.delegate = self
         }
     }
 
@@ -82,15 +85,15 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
     
     //MARK:- Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timersList.count
+        return (timersObject?.items.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
             let cell = makeCell(for: tableView)
-            let listTimer = timersList[indexPath.row]
-            configureText(for: cell, with: listTimer)
-            cell.accessoryType = .disclosureIndicator
+            let listTimer = timersObject?.items[indexPath.row]
+        configureText(for: cell, with: listTimer!)
+            cell.accessoryType = .detailDisclosureButton
 
         return cell
     }
@@ -98,7 +101,7 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
-            let listTimer = timersList[indexPath.row]
+            let listTimer = timersObject?.items[indexPath.row]
             
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -108,33 +111,27 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
         
-        timersList.remove(at: indexPath.row)
+        timersObject?.items.remove(at: indexPath.row)
 
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
-    
-    
-    //MARK:- AddTimerTableViewController Delegates
-    
-    func addTimerTableViewControllerDidCancel(_ controller: AddTimerTableViewController) {
-        navigationController?.popViewController(animated: true)
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let controller = storyboard!.instantiateViewController(withIdentifier: "AddTimerController") as! AddTimerViewController
+        controller.delegate = self
+        
+        let timerList = timersObject?.items[indexPath.row]
+        controller.upDownTimerToEdit = timerList
+        navigationController?.pushViewController(controller, animated: true)
     }
     
-    func addTimerTableViewController(_ controller: AddTimerTableViewController, didFinishAdding timer: UpDownTimer) {
-        
-        let newRowIndex = timersList.count
-        timersList.append(timer)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [ indexPath ]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        navigationController?.popViewController(animated: true)
-    }
     
+    //MARK:- Delegate Methods
+    // UpDownTimerViewController - Delegate for returning the updated timer
     func returnTimerToWorkWith(_ controller: UpDownTimerViewController, didFinishWithTimer timer: UpDownTimer) {
-        if let index = timersList.index(of: timer) {
+        if let index = timersObject?.items.index(of: timer) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
                 configureText(for: cell, with: timer)
@@ -143,6 +140,34 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
         navigationController?.popViewController(animated: true)
     }
     
+    // AddTimerViewController - Delegate for renaming the timer
+    
+    
+    func addTimerViewControllerDelegateDidCancel(_ controller: AddTimerViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addTimerViewController(_ controller: AddTimerViewController, didFinishAdding timerListItem: UpDownTimer) {
+        
+        let newRowIndex = timersObject?.items.count
+        timersObject?.items.append(timerListItem)
+        
+        let indexPath = IndexPath(row: newRowIndex!, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addTimerViewController(_ controller: AddTimerViewController, didFinishEditing timerListItem: UpDownTimer) {
+        if let index = timersObject?.items.index(of: timerListItem) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, with: timerListItem)
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
 }
     
     
