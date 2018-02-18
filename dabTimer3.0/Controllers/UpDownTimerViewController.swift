@@ -28,6 +28,7 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var stopOutlet: UIButton!
     @IBOutlet weak var startOutlet: UIButton!
     
+    var timer = Timer()
     
     //MARK:- Delegate and Timer Object
     // Inform this controller it has a delegate.
@@ -83,7 +84,7 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
     @objc func Clock() {
         
         if let timerToWorkWith = timerToWorkWith {
-          timerToWorkWith.runTimers(upDownTimer: timerToWorkWith, heat: heatUpLabel, cool: coolDownLabel)
+            timerToWorkWith.runTimers(upDownTimer: timerToWorkWith, heat: heatUpLabel, cool: coolDownLabel, timer: timer)
         }
        
     }
@@ -95,13 +96,19 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
         
         if let timerToWorkWith = timerToWorkWith {
             
-            timerToWorkWith.heatTimerSaved = timerToWorkWith.heatUpTimer
-            timerToWorkWith.coolTimerSaved = timerToWorkWith.coolDownTimer
+            if timerToWorkWith.timerIsRunning == true {
+                return
+            } else {
+                timerToWorkWith.heatTimerSaved = timerToWorkWith.heatUpTimer
+                timerToWorkWith.coolTimerSaved = timerToWorkWith.coolDownTimer
+                timerToWorkWith.timerIsRunning = false
+                
+                timerToWorkWith.name = title!
+                timerToWorkWith.heatUpTimer = Int(heatUpLabel.text!)!
+                timerToWorkWith.coolDownTimer = Int(coolDownLabel.text!)!
+                delegate?.returnTimerToWorkWith(self, didFinishWithTimer: timerToWorkWith)
+            }
             
-            timerToWorkWith.name = title!
-            timerToWorkWith.heatUpTimer = Int(heatUpLabel.text!)!
-            timerToWorkWith.coolDownTimer = Int(coolDownLabel.text!)!
-            delegate?.returnTimerToWorkWith(self, didFinishWithTimer: timerToWorkWith)
         }
         
     }
@@ -118,7 +125,7 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
                 timerToWorkWith.heatTimerSaved = timerToWorkWith.heatUpTimer
                 timerToWorkWith.coolTimerSaved = timerToWorkWith.coolDownTimer
                 // Run the timers using the clock function
-                timerToWorkWith.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Clock), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Clock), userInfo: nil, repeats: true)
                 
             }
         }
@@ -147,7 +154,7 @@ class UpDownTimerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func reset(_ sender: Any) {
         
         if let timerToWorkWith = timerToWorkWith {
-            timerToWorkWith.resetTimers(timer: timerToWorkWith, heat: heatUpLabel, cool: coolDownLabel)
+            timerToWorkWith.resetTimers(upDownTimer: timerToWorkWith, heat: heatUpLabel, cool: coolDownLabel, timer: timer)
             heatUpStepperOutlet.value = Double(timerToWorkWith.heatUpTimer)
             coolDownStepperOutlet.value = Double(timerToWorkWith.coolDownTimer)
         }

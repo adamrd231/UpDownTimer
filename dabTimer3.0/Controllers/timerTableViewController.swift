@@ -11,9 +11,9 @@ import GoogleMobileAds
 
 class timerTableViewController: UITableViewController, UpDownTimerViewControllerDelegate, AddTimerViewControllerDelegate {
     
-    var timersObject: TimerListItem?
-    
-    @IBOutlet weak var GoogleBannerView: GADBannerView!
+    var timersObject: TimerListItem!
+
+    @IBOutlet weak var GoogleBannerViewMain: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +23,14 @@ class timerTableViewController: UITableViewController, UpDownTimerViewController
         
         //MARK:= google Adwords
         // Test AdMob Banner ID
-        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        
+        GoogleBannerViewMain.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         
         // Live AdMob Banner ID
         //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
-        GoogleBannerView.rootViewController = self
-        GoogleBannerView.load(GADRequest())
+        //GoogleBannerView.rootViewController = self
+        GoogleBannerViewMain.rootViewController = self
+        GoogleBannerViewMain.load(GADRequest())
+        //GoogleBannerView.load(GADRequest())
     }
 
     @IBAction func addTimer(_ sender: Any) {

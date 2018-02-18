@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimerListItem: NSObject {
+class TimerListItem: NSObject, Codable {
     
     var name = ""
     var items = [UpDownTimer]()

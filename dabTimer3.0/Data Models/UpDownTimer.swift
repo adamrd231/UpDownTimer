@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UpDownTimer: NSObject {
+class UpDownTimer: NSObject, Codable {
     
     var name = ""
     var heatUpTimer = 45
@@ -16,38 +16,28 @@ class UpDownTimer: NSObject {
     var timerIsRunning = false
     var coolDownTimer = 45
     var coolTimerSaved = 45
-    
-//    init(name: String, heatUpTimer: Int, heatTimerSaved: Int, coolDownTimer: Int, coolTimerSaved: Int, timerIsRunning: Bool) {
-//
-//        self.name = name
-//        self.heatUpTimer = heatUpTimer
-//        self.heatTimerSaved = heatTimerSaved
-//        self.coolDownTimer = coolDownTimer
-//        self.coolTimerSaved = coolTimerSaved
-//        self.timerIsRunning = timerIsRunning
-//
-//    }
-    
-    
-    var timer = Timer()
-    
+
     
     //MARK:- Custom Functions
     // Reset the timers back to the default time.
-    func resetTimers(timer: UpDownTimer, heat: UILabel, cool: UILabel) {
+    func resetTimers(upDownTimer: UpDownTimer, heat: UILabel, cool: UILabel, timer: Timer) {
         
-        timer.heatUpTimer = heatTimerSaved
+        upDownTimer.heatUpTimer = heatTimerSaved
         heat.text = String(heatUpTimer)
         
-        timer.coolDownTimer = coolTimerSaved
+        upDownTimer.coolDownTimer = coolTimerSaved
         cool.text = String(coolDownTimer)
         
-        timer.timerIsRunning = false
-        timer.timer.invalidate()
+        upDownTimer.timerIsRunning = false
+        timer.invalidate()
         
     }
     
-    func runTimers(upDownTimer: UpDownTimer, heat: UILabel, cool: UILabel) {
+    func toggleTimerIsRunning() {
+        timerIsRunning = !timerIsRunning
+    }
+    
+    func runTimers(upDownTimer: UpDownTimer, heat: UILabel, cool: UILabel, timer: Timer) {
         // Run the Heat Up Timer
         if upDownTimer.heatUpTimer > 0 {
             upDownTimer.heatUpTimer -= 1
@@ -61,7 +51,7 @@ class UpDownTimer: NSObject {
             // When the cool down timer reaches 0, invalidate the timer to end it.
             if upDownTimer.coolDownTimer == 0 {
                 upDownTimer.timerIsRunning = false
-                upDownTimer.timer.invalidate()
+                timer.invalidate()
             }
         }
     }
@@ -70,9 +60,8 @@ class UpDownTimer: NSObject {
  
 }
 
-    
-    
-//    // screen flash
+
+    // screen flash
 //    func flash() {
 //        if let wnd = self.view{
 //
@@ -89,5 +78,5 @@ class UpDownTimer: NSObject {
 //            })
 //        }
 //    }
-    
+
 

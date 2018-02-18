@@ -6,62 +6,57 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class MainTableViewController: UITableViewController, EditViewControllerDelegate {
+class MainTableViewController: UITableViewController, EditViewControllerDelegate, UINavigationControllerDelegate {
     
     
-    var lists = [TimerListItem]()
-
+    var dataModel: DataModel!
+    
+    @IBOutlet weak var GoogleBannerView: GADBannerView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "UpDownTimer"
         navigationItem.largeTitleDisplayMode = .always
         
-        var newList = TimerListItem(name: "50mm Insert")
+        //MARK:= google Adwords
+        // Test AdMob Banner ID
+        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         
-        var firstTimer = UpDownTimer()
-        firstTimer.name = "WARM"
-        firstTimer.coolDownTimer = 0
-        firstTimer.heatUpTimer = 0
-        newList.items.append(firstTimer)
-        firstTimer = UpDownTimer()
-        firstTimer.name = "COLD"
-        newList.items.append(firstTimer)
         
-        lists.append(newList)
+        // Live AdMob Banner ID
+        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.rootViewController = self
+        GoogleBannerView.load(GADRequest())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationController?.delegate = self
+        
+        let index = dataModel.indexOfSelectedTimerlist
+        
+        if index >= 0 && index < dataModel.lists.count {
+            let timerListItem = dataModel.lists[index]
+            performSegue(withIdentifier: "ShowTimers", sender: timerListItem)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK:- View Actions
-    @IBAction func addListItem(_ sender: Any) {
-        
-        let newRowIndex = lists.count
 
-        let newTimerObject = TimerListItem(name: "New Timer Object")
-        var firstTimer = UpDownTimer()
-        firstTimer.name = "New Timer"
-        
-        newTimerObject.items.append(firstTimer)
-        lists.append(newTimerObject)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [ indexPath ]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-   
-    }
-        
-   
+
     //MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowTimers" {
@@ -85,18 +80,18 @@ class MainTableViewController: UITableViewController, EditViewControllerDelegate
         }
     }
     
+    
+    
     // MARK: - Table view data source
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return lists.count
+        return dataModel.lists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = makeCell(for: tableView)
         // Update cell informaiton
-        let timerList = lists[indexPath.row]
+        let timerList = dataModel.lists[indexPath.row]
         cell.textLabel?.text = timerList.name
         
         cell.accessoryType = .detailDisclosureButton
@@ -105,12 +100,14 @@ class MainTableViewController: UITableViewController, EditViewControllerDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let timerlist = lists[indexPath.row]
+        dataModel.indexOfSelectedTimerlist = indexPath.row
+        
+        let timerlist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "ShowTimers", sender: timerlist)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        lists.remove(at: indexPath.row)
+        dataModel.lists.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
@@ -121,12 +118,13 @@ class MainTableViewController: UITableViewController, EditViewControllerDelegate
         let controller = storyboard!.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
         controller.delegate =  self
         
-        let timerListItem = lists[indexPath.row]
+        let timerListItem = dataModel.lists[indexPath.row]
         controller.timerToEdit = timerListItem
         
         navigationController?.pushViewController(controller, animated: true)
         
     }
+    
     
     
     // MARK: - Delegate methods
@@ -135,33 +133,35 @@ class MainTableViewController: UITableViewController, EditViewControllerDelegate
     }
     
     func editViewController(_ controller: EditViewController, didFinishAdding timerListItem: TimerListItem) {
-        let newRowIndex = lists.count
-        let newTimer = UpDownTimer()
-        timerListItem.items.append(newTimer)
-        lists.append(timerListItem)
         
-        let indexPath =  IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [ indexPath ]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-
+        let newTimer = UpDownTimer()
+        newTimer.name = "New Timer"
+        timerListItem.items.append(newTimer)
+        
+        dataModel.lists.append(timerListItem)
+        dataModel.sortTimerlists()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     
     func editViewController(_ controller: EditViewController, didFinishEditing timerListItem: TimerListItem) {
         
-        if let index = lists.index(of: timerListItem) {
-            let indexPath = IndexPath(row: index, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.textLabel!.text = timerListItem.name
-                
-            }
-        
-        }
-        
+        dataModel.sortTimerlists()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
         
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
+        // Reset the index to -1 if the back button was tapped.
+        if viewController === self {
+            dataModel.indexOfSelectedTimerlist = -1
+        }
+        
+    }
+    
+    
 }
     
 

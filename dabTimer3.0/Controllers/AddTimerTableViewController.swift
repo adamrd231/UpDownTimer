@@ -55,14 +55,7 @@ class AddTimerTableViewController: UITableViewController, UITextFieldDelegate {
         delegate?.addTimerTableViewController(self, didFinishAdding: upDownTimer )
         
     }
-    
-    
-        
-    
-    
-        
-    
-    
+
     
     
     //MARK:- TableView Methods
